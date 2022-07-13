@@ -6,6 +6,7 @@ authors = ["H3r1CH <H3r1CH@protonmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+typer = {extras = ["all"], version = "^0.6.1"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
