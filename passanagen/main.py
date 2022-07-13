@@ -5,9 +5,9 @@ numbers = ('0','1','2','3','4','5','6','7','8','9')
 spec_chars = ('`','~','!','@','#','$','%','^','&','*','(',')','-','+','=','_','{','}','[',']','\\','|','/','?','>','<')
 length = ''
 
-app = typer.Typer()
+app = typer.Typer(help="CLI Password Analyzer and Generator.")
 
-@app.command()
+@app.command(help="Analyze a given password.")
 def analyze(password: str):
     print('-' * 22)
     print('PASSWORD DETAILS')
@@ -51,7 +51,7 @@ def analyze(password: str):
     print('-' * 22)
 
 
-@app.command()
+@app.command(help="Generate a password based on selected properties.")
 def generate(password: str):
     print(f"This is the {password}")
 

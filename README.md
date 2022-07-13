@@ -1,6 +1,14 @@
 # passanagen
 CLI Password Analyzer and Generator
 
+## Installation
+```bash
+git clone https://github.com/H3r1CH/passanagen.git
+cd passanagen
+poetry install
+poetry shell
+```
+### Help
 ```bash
 python main.py --help        
 Usage: main.py [OPTIONS] COMMAND [ARGS]...
