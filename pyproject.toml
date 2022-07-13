@@ -3,6 +3,10 @@ name = "passanagen"
 version = "0.1.0"
 description = ""
 authors = ["H3r1CH <H3r1CH@protonmail.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+passanagen = "passanagen.main:app"
 
 [tool.poetry.dependencies]
 python = "^3.10"
