@@ -3,6 +3,10 @@ CLI Password Analyzer and Generator
 
 ## Installation
 ```bash
+pip install https://github.com/H3r1CH/passanagen/releases/download/v0.1.0/passanagen-0.1.0-py3-none-any.whl
+```
+or
+```bash
 git clone https://github.com/H3r1CH/passanagen.git
 cd passanagen
 poetry install
