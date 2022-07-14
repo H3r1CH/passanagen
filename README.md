@@ -8,10 +8,19 @@ cd passanagen
 poetry install
 poetry shell
 ```
+or
+```bash
+git clone https://github.com/H3r1CH/passanagen.git
+cd passanagen
+poetry install
+poetry build
+pip install dist/passanagen-0.1.0-py3-none-any.whl
+```
+
 ### Help
 ```bash
-python main.py --help        
-Usage: main.py [OPTIONS] COMMAND [ARGS]...
+passanagen --help        
+Usage: passanagen [OPTIONS] COMMAND [ARGS]...
 
 Options:
   --install-completion  Install completion for the current shell.
@@ -28,8 +37,8 @@ Commands:
 
 ### Help
 ```bash
-python main.py analyze --help
-Usage: main.py analyze [OPTIONS] PASSWORD
+passanagen analyze --help
+Usage: passanagen analyze [OPTIONS] PASSWORD
 
 Arguments:
   PASSWORD  [required]
@@ -37,7 +46,7 @@ Arguments:
 
 ### Example
 ```bash
-python main.py analyze password123 
+passanagen analyze password123 
 ----------------------
 PASSWORD DETAILS
 ----------------------
