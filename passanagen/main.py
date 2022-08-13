@@ -1,35 +1,37 @@
-from mimetypes import init
-from multiprocessing.sharedctypes import Value
-from os import TMP_MAX
-import typer
+"""Provides some arithmetic functions"""
 import random
 import string
+import typer
 
-lcl = string.ascii_lowercase
-ucl = string.ascii_uppercase
-num = string.digits
-char = string.punctuation
-pass_length_min = 8
+
+LCL = string.ascii_lowercase
+UCL = string.ascii_uppercase
+NUM = string.digits
+CHAR = string.punctuation
+PASS_LENGTH_MIN = 8
 
 app = typer.Typer(help="CLI Password Analyzer and Generator.")
 
-__version__ = "0.2.2"
+__version__ = "0.2.3"
 
 
 def version_callback(value: bool):
+    """Version callback function to get the version"""
     if value:
         typer.echo(f"passanagen version: {__version__}")
         raise typer.Exit()
 
 
 @app.callback()
-def main(version: bool = typer.Option(None, "--version", 
+def main(version: bool = typer.Option(None, "--version",
 callback=version_callback, is_eager=True, help="Show current version of passanagen")):
-    return
+    """Callback function to get the version"""
+    print(version)
 
 
 @app.command("ana", help="Analyze a given password.")
 def analyze(password: str):
+    """Function to analyze a given password from the CLI."""
     print('-' * 22)
     print('ANALYZED PASSWORD')
     print('-' * 22)
@@ -38,25 +40,26 @@ def analyze(password: str):
     lower_count = 0
     num_count = 0
     char_count = 0
-    for u in password:
-        if u.isupper():
+    for i in password:
+        if i.isupper():
             upper_count += 1
-        elif u.islower():
+        elif i.islower():
             lower_count += 1
-        elif u in num:
+        elif i in NUM:
             num_count += 1
-        elif u in char:
+        elif i in CHAR:
             char_count += 1
         else:
-            print('[-] Unknown character!')          
+            print('[-] Unknown CHARacter!')
     print('> Uppercase Letters:', upper_count)
     print('> Lowercase Letters:', lower_count)
     print('> Number count:', num_count)
-    print('> Special Character count:', char_count)
+    print('> Special Characters count:', char_count)
     print()
 
-    if len(password) < pass_length_min:
-        print(f'[-] Your password "{password}" is too short! Use a minimum length of {pass_length_min}!')
+    if len(password) < PASS_LENGTH_MIN:
+        print(f'[-] Your password "{password}" is too short! \
+            Use a minimum length of {PASS_LENGTH_MIN}!')
     if upper_count < 1:
         print(f'[-] Your password "{password}" contains NO uppercase!')
     if lower_count < 1:
@@ -65,18 +68,20 @@ def analyze(password: str):
         print(f'[-] Your password "{password}" contains NO numbers!')
     if char_count < 1:
         print(f'[-] Your password "{password}" contains NO special characters!')
-    if (len(password) > pass_length_min and upper_count > 0 and lower_count > 0 and num_count > 0 and char_count > 0):
+    if (len(password) > PASS_LENGTH_MIN and upper_count > 0 and lower_count > 0 and \
+        num_count > 0 and char_count > 0):
         print(f'[+] Your password "{password}" is STRONG!!')
     print('-' * 22)
 
 
 @app.command("gen", help="Generate a password based on selected properties.")
 def generate():
+    """Function to generate a password based on selected properties."""
     pass_length = typer.prompt("Select Password length")
     try:
         pass_length_num = int(pass_length)
-        if pass_length_num < pass_length_min:
-            print(f'[-] Password is too short. Please use at least {pass_length_min} characters.')
+        if pass_length_num < PASS_LENGTH_MIN:
+            print(f'[-] Password is too short. Please use at least {PASS_LENGTH_MIN} characters.')
             generate()
         else:
             print(f"Password Length = {pass_length_num}")
@@ -91,36 +96,36 @@ def generate():
             remaining_password = ''
 
             if low_case:
-                lower_password = random.choice(lcl)
+                lower_password = random.choice(LCL)
                 initial_password += lower_password
                 unique_case += 1
-                combined += lcl
+                combined += LCL
             if up_case:
-                upper_password = random.choice(ucl)
+                upper_password = random.choice(UCL)
                 initial_password += upper_password
                 unique_case += 1
-                combined += ucl
+                combined += UCL
             if a_number:
-                num_password = random.choice(num)
+                num_password = random.choice(NUM)
                 initial_password += num_password
                 unique_case += 1
-                combined += num
+                combined += NUM
             if a_char:
-                char_password = random.choice(char)
+                char_password = random.choice(CHAR)
                 initial_password += char_password
                 unique_case += 1
-                combined += char
+                combined += CHAR
 
             if not any([low_case, up_case, a_number, a_char]):
                 print("[+] Defaulting to only lowercase letters.")
-                lower_password = random.choice(lcl)
+                lower_password = random.choice(LCL)
                 initial_password += lower_password
                 unique_case += 1
-                combined += lcl
-            
+                combined += LCL
+
             for _ in range(pass_length_num - unique_case):
                 remaining_password += random.choice(combined)
-            
+
             temp_password = ''.join(initial_password + remaining_password)
             new_passowrd = ''.join(random.sample(temp_password,len(temp_password)))
             print('-' * 22)
