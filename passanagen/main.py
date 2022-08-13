@@ -13,6 +13,20 @@ pass_length_min = 8
 
 app = typer.Typer(help="CLI Password Analyzer and Generator.")
 
+__version__ = "0.2.2"
+
+
+def version_callback(value: bool):
+    if value:
+        typer.echo(f"passanagen version: {__version__}")
+        raise typer.Exit()
+
+
+@app.callback()
+def main(version: bool = typer.Option(None, "--version", 
+callback=version_callback, is_eager=True, help="Show current version of passanagen")):
+    return
+
 
 @app.command("ana", help="Analyze a given password.")
 def analyze(password: str):
