@@ -3,7 +3,6 @@ CLI Password Analyzer and Generator
 
 ![Pylint](https://github.com/H3r1CH/passanagen/actions/workflows/pylint.yml/badge.svg)
 ![Dependency](https://github.com/H3r1CH/passanagen/actions/workflows/dependency-review.yml/badge.svg)
-![Publish](https://github.com/H3r1CH/passanagen/actions/workflows/python-publish.yml/badge.svg)
 
 ## Installation
 ```bash
