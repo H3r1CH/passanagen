@@ -30,7 +30,7 @@ passanagen --help
 
 ### Help
 ```bash
-C:\Users\esanderford>passanagen ana --help
+passanagen ana --help
 
  Usage: passanagen ana [OPTIONS] PASSWORD
 
