@@ -1,6 +1,9 @@
 # passanagen
 CLI Password Analyzer and Generator
 
+![Pylint](https://github.com/H3r1CH/passanagen/actions/workflows/pylint.yml/badge.svg)
+![Publish](https://github.com/H3r1CH/passanagen/actions/workflows/python-publish.yml/badge.svg)
+
 ## Installation
 ```bash
 pip install https://github.com/H3r1CH/passanagen/releases/download/v0.2.2/passanagen-0.2.2-py3-none-any.whl
