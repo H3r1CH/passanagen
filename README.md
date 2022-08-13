@@ -7,7 +7,7 @@ CLI Password Analyzer and Generator
 
 ## Installation
 ```bash
-pip install https://github.com/H3r1CH/passanagen/releases/download/v0.2.2/passanagen-0.2.2-py3-none-any.whl
+pip install https://github.com/H3r1CH/passanagen/releases/download/v0.2.2/passanagen-0.2.3-py3-none-any.whl
 ```
 
 ### Help
