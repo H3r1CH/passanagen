@@ -3,7 +3,7 @@ CLI Password Analyzer and Generator
 
 ## Installation
 ```bash
-pip install https://github.com/H3r1CH/passanagen/releases/download/v0.2.1/passanagen-0.2.1-py3-none-any.whl
+pip install https://github.com/H3r1CH/passanagen/releases/download/v0.2.2/passanagen-0.2.2-py3-none-any.whl
 ```
 
 ### Help
@@ -15,7 +15,8 @@ passanagen --help
  CLI Password Analyzer and Generator.
 
 ┌─ Options ──────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│ --install-completion          Install completion for the current shell.                                        │
+│ --version                     Show current version of passanagen                                               |
+| --install-completion          Install completion for the current shell.                                        │
 │ --show-completion             Show completion for the current shell, to copy it or customize the installation. │
 │ --help                        Show this message and exit.                                                      │
 └────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
